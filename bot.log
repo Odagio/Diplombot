@@ -1,0 +1,955 @@
+INFO:root:пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 29, in talk_to_me
+    change_status(user, next_stat)
+  File "c:\projects\bot_diplom\db.py", line 25, in change_status
+    new_status['created']  = datetime.now()
+TypeError: 'str' object does not support item assignment
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 29, in talk_to_me
+    change_status(user, next_stat)
+  File "c:\projects\bot_diplom\db.py", line 25, in change_status
+    new_status['status']  = datetime.now()
+TypeError: 'str' object does not support item assignment
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 29, in talk_to_me
+    change_status(user, next_stat)
+  File "c:\projects\bot_diplom\db.py", line 24, in change_status
+    user = db.users.find_one({"user_id": user.id})
+AttributeError: 'dict' object has no attribute 'id'
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 29, in talk_to_me
+    change_status(user, next_stat)
+  File "c:\projects\bot_diplom\db.py", line 25, in change_status
+    new_status['created'] = datetime.now()
+TypeError: 'str' object does not support item assignment
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 29, in talk_to_me
+    change_status(user, next_stat)
+  File "c:\projects\bot_diplom\db.py", line 34, in change_status
+    anketa_data['created'] = datetime.now()
+NameError: name 'anketa_data' is not defined
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 29, in talk_to_me
+    change_status(user, next_stat)
+  File "c:\projects\bot_diplom\db.py", line 24, in change_status
+    user = db.users.find_one({"user_id": user.id})
+AttributeError: 'dict' object has no attribute 'id'
+ERROR:telegram.ext.updater:Error while getting Updates: urllib3 HTTPError ('Connection aborted.', ConnectionResetError(10054, 'Удаленный хост принудительно разорвал существующее подключение', None, 10054, None))
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\connectionpool.py", line 614, in urlopen
+    httplib_response = self._make_request(conn, method, url,
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\connectionpool.py", line 402, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 2, in raise_from
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\connectionpool.py", line 398, in _make_request
+    httplib_response = conn.getresponse()
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python38\lib\http\client.py", line 1347, in getresponse
+    response.begin()
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python38\lib\http\client.py", line 307, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python38\lib\http\client.py", line 268, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python38\lib\socket.py", line 669, in readinto
+    return self._sock.recv_into(b)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python38\lib\ssl.py", line 1241, in recv_into
+    return self.read(nbytes, buffer)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python38\lib\ssl.py", line 1099, in read
+    return self._sslobj.read(len, buffer)
+ConnectionResetError: [WinError 10054] Удаленный хост принудительно разорвал существующее подключение
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\utils\request.py", line 224, in _request_wrapper
+    resp = self._con_pool.request(*args, **kwargs)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\request.py", line 68, in request
+    return self.request_encode_body(method, url, fields=fields,
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\request.py", line 148, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\poolmanager.py", line 244, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\connectionpool.py", line 665, in urlopen
+    retries = retries.increment(method, url, error=e, _pool=self,
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\util\retry.py", line 347, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\packages\six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\connectionpool.py", line 614, in urlopen
+    httplib_response = self._make_request(conn, method, url,
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\connectionpool.py", line 402, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 2, in raise_from
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\connectionpool.py", line 398, in _make_request
+    httplib_response = conn.getresponse()
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python38\lib\http\client.py", line 1347, in getresponse
+    response.begin()
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python38\lib\http\client.py", line 307, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python38\lib\http\client.py", line 268, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python38\lib\socket.py", line 669, in readinto
+    return self._sock.recv_into(b)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python38\lib\ssl.py", line 1241, in recv_into
+    return self.read(nbytes, buffer)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python38\lib\ssl.py", line 1099, in read
+    return self._sslobj.read(len, buffer)
+telegram.vendor.ptb_urllib3.urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(10054, 'Удаленный хост принудительно разорвал существующее подключение', None, 10054, None))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\updater.py", line 379, in _network_loop_retry
+    if not action_cb():
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\updater.py", line 337, in polling_action_cb
+    updates = self.bot.get_updates(self.last_update_id,
+  File "<decorator-gen-31>", line 2, in get_updates
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\bot.py", line 67, in decorator
+    result = func(*args, **kwargs)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\bot.py", line 2138, in get_updates
+    result = self._request.post(url, data, timeout=float(read_latency) + float(timeout))
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\utils\request.py", line 330, in post
+    result = self._request_wrapper('POST', url,
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\utils\request.py", line 230, in _request_wrapper
+    raise NetworkError('urllib3 HTTPError {}'.format(error))
+telegram.error.NetworkError: urllib3 HTTPError ('Connection aborted.', ConnectionResetError(10054, 'Удаленный хост принудительно разорвал существующее подключение', None, 10054, None))
+WARNING:telegram.vendor.ptb_urllib3.urllib3.connectionpool:Retrying (Retry(total=2, connect=None, read=None, redirect=None)) after connection broken by 'NewConnectionError('<telegram.vendor.ptb_urllib3.urllib3.connection.VerifiedHTTPSConnection object at 0x000001B0FC1B6B20>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /bot1387376270:AAFpPMnhMsZRZy1NbvVSB-iZcky3OFPniqk/getUpdates
+WARNING:telegram.vendor.ptb_urllib3.urllib3.connectionpool:Retrying (Retry(total=1, connect=None, read=None, redirect=None)) after connection broken by 'NewConnectionError('<telegram.vendor.ptb_urllib3.urllib3.connection.VerifiedHTTPSConnection object at 0x000001B0FC1B6C40>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /bot1387376270:AAFpPMnhMsZRZy1NbvVSB-iZcky3OFPniqk/getUpdates
+WARNING:telegram.vendor.ptb_urllib3.urllib3.connectionpool:Retrying (Retry(total=0, connect=None, read=None, redirect=None)) after connection broken by 'NewConnectionError('<telegram.vendor.ptb_urllib3.urllib3.connection.VerifiedHTTPSConnection object at 0x000001B0FC1B6D90>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /bot1387376270:AAFpPMnhMsZRZy1NbvVSB-iZcky3OFPniqk/getUpdates
+ERROR:telegram.ext.updater:Error while getting Updates: urllib3 HTTPError HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot1387376270:AAFpPMnhMsZRZy1NbvVSB-iZcky3OFPniqk/getUpdates (Caused by NewConnectionError('<telegram.vendor.ptb_urllib3.urllib3.connection.VerifiedHTTPSConnection object at 0x000001B0FC1B6EE0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\connection.py", line 140, in _new_conn
+    conn = connection.create_connection(
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\util\connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python38\lib\socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\connectionpool.py", line 614, in urlopen
+    httplib_response = self._make_request(conn, method, url,
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\connectionpool.py", line 360, in _make_request
+    self._validate_conn(conn)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\connectionpool.py", line 857, in _validate_conn
+    super(HTTPSConnectionPool, self)._validate_conn(conn)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\connectionpool.py", line 289, in _validate_conn
+    conn.connect()
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\connection.py", line 149, in _new_conn
+    raise NewConnectionError(
+telegram.vendor.ptb_urllib3.urllib3.exceptions.NewConnectionError: <telegram.vendor.ptb_urllib3.urllib3.connection.VerifiedHTTPSConnection object at 0x000001B0FC1B6EE0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\utils\request.py", line 224, in _request_wrapper
+    resp = self._con_pool.request(*args, **kwargs)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\request.py", line 68, in request
+    return self.request_encode_body(method, url, fields=fields,
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\request.py", line 148, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\poolmanager.py", line 244, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\connectionpool.py", line 691, in urlopen
+    return self.urlopen(method, url, body, headers, retries,
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\connectionpool.py", line 691, in urlopen
+    return self.urlopen(method, url, body, headers, retries,
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\connectionpool.py", line 691, in urlopen
+    return self.urlopen(method, url, body, headers, retries,
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\connectionpool.py", line 665, in urlopen
+    retries = retries.increment(method, url, error=e, _pool=self,
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\util\retry.py", line 376, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+telegram.vendor.ptb_urllib3.urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot1387376270:AAFpPMnhMsZRZy1NbvVSB-iZcky3OFPniqk/getUpdates (Caused by NewConnectionError('<telegram.vendor.ptb_urllib3.urllib3.connection.VerifiedHTTPSConnection object at 0x000001B0FC1B6EE0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\updater.py", line 379, in _network_loop_retry
+    if not action_cb():
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\updater.py", line 337, in polling_action_cb
+    updates = self.bot.get_updates(self.last_update_id,
+  File "<decorator-gen-31>", line 2, in get_updates
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\bot.py", line 67, in decorator
+    result = func(*args, **kwargs)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\bot.py", line 2138, in get_updates
+    result = self._request.post(url, data, timeout=float(read_latency) + float(timeout))
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\utils\request.py", line 330, in post
+    result = self._request_wrapper('POST', url,
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\utils\request.py", line 230, in _request_wrapper
+    raise NetworkError('urllib3 HTTPError {}'.format(error))
+telegram.error.NetworkError: urllib3 HTTPError HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot1387376270:AAFpPMnhMsZRZy1NbvVSB-iZcky3OFPniqk/getUpdates (Caused by NewConnectionError('<telegram.vendor.ptb_urllib3.urllib3.connection.VerifiedHTTPSConnection object at 0x000001B0FC1B6EE0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 29, in talk_to_me
+    change_status(user, next_stat)
+  File "c:\projects\bot_diplom\db.py", line 24, in change_status
+    user = db.users.find_one({"user_id": (user.id)})
+AttributeError: 'dict' object has no attribute 'id'
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 29, in talk_to_me
+    change_status(user, next_stat)
+  File "c:\projects\bot_diplom\db.py", line 24, in change_status
+    user = db.users.find_one({'user_id': user.id})
+AttributeError: 'dict' object has no attribute 'id'
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 29, in talk_to_me
+    change_status(user, next_stat)
+  File "c:\projects\bot_diplom\db.py", line 24, in change_status
+    user = db.users.update_one({"user_id": user.id})
+AttributeError: 'dict' object has no attribute 'id'
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 29, in talk_to_me
+    change_status(user, next_stat)
+  File "c:\projects\bot_diplom\db.py", line 24, in change_status
+    user = db.users.find_one({"user_id":effective_user.id})
+NameError: name 'effective_user' is not defined
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 29, in talk_to_me
+    change_status(user, next_stat)
+TypeError: change_status() missing 1 required positional argument: 'chat_id'
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 29, in talk_to_me
+    change_status(user, next_stat)
+  File "c:\projects\bot_diplom\db.py", line 25, in change_status
+    new_status['created'] = datetime.now()
+TypeError: 'str' object does not support item assignment
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 29, in talk_to_me
+    change_status(user, next_stat)
+  File "c:\projects\bot_diplom\db.py", line 25, in change_status
+    new_status['created'] = datetime.now()
+TypeError: 'str' object does not support item assignment
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 29, in talk_to_me
+    change_status(user, next_stat)
+  File "c:\projects\bot_diplom\db.py", line 25, in change_status
+    new_status['created'] = datetime.now()
+TypeError: 'str' object does not support item assignment
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 29, in talk_to_me
+    change_status(user, next_stat)
+  File "c:\projects\bot_diplom\db.py", line 27, in change_status
+    {'_id': user['_id']},
+TypeError: 'NoneType' object is not subscriptable
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 29, in talk_to_me
+    change_status(user, next_stat)
+  File "c:\projects\bot_diplom\db.py", line 27, in change_status
+    {'_id': user['_id']},
+NameError: name 'user' is not defined
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 29, in talk_to_me
+    change_status(user, next_stat)
+TypeError: change_status() missing 1 required positional argument: 'new_status'
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 29, in talk_to_me
+    change_status(user, next_stat)
+TypeError: change_status() missing 1 required positional argument: 'new_status'
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 29, in talk_to_me
+    change_status(user, next_stat)
+TypeError: change_status() missing 1 required positional argument: 'new_status'
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 27, in talk_to_me
+    next_stat = states[current_stat+1]
+IndexError: tuple index out of range
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 29, in talk_to_me
+    change_status(user, next_stat)
+  File "c:\projects\bot_diplom\db.py", line 26, in change_status
+    {'_id': user['_id']},
+TypeError: 'NoneType' object is not subscriptable
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 29, in talk_to_me
+    change_status(user, next_stat)
+TypeError: change_status() missing 1 required positional argument: 'new_status'
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 29, in talk_to_me
+    change_status(user, next_stat, new_status)
+NameError: name 'new_status' is not defined
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 29, in talk_to_me
+    change_status(user, next_stat)
+TypeError: change_status() missing 1 required positional argument: 'new_status'
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 29, in talk_to_me
+    change_status(user, next_stat)
+TypeError: change_status() missing 2 required positional arguments: 'new_status' and 'user'
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 29, in talk_to_me
+    change_status(user, next_stat)
+  File "c:\projects\bot_diplom\db.py", line 26, in change_status
+    {'_id': user['_id']},
+TypeError: string indices must be integers
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 24, in talk_to_me
+    save_anketa(db, user['user_id'], context.user_data['anketa'])
+KeyError: 'anketa'
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 22, in talk_to_me
+    context.user_data["anketa"] = {"name": user_name}
+NameError: name 'user_name' is not defined
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 22, in talk_to_me
+    context.user_data["anketa"] = {"name": user_name}
+NameError: name 'user_name' is not defined
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 24, in talk_to_me
+    next_stat = states[current_stat+1]
+IndexError: tuple index out of range
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 24, in talk_to_me
+    next_stat = states[current_stat+1]
+IndexError: tuple index out of range
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 24, in talk_to_me
+    next_stat = states[current_stat+1]
+IndexError: tuple index out of range
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 24, in talk_to_me
+    next_stat = states[current_stat+1]
+IndexError: tuple index out of range
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 24, in talk_to_me
+    next_stat = states[current_stat+1]
+IndexError: tuple index out of range
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 24, in talk_to_me
+    next_stat = states[current_stat+1]
+IndexError: tuple index out of range
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 24, in talk_to_me
+    next_stat = states[current_stat+1]
+IndexError: tuple index out of range
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 24, in talk_to_me
+    next_stat = states[current_stat+1]
+IndexError: tuple index out of range
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 24, in talk_to_me
+    next_stat = states[current_stat+1]
+IndexError: tuple index out of range
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 24, in talk_to_me
+    next_stat = states[current_stat+1]
+IndexError: tuple index out of range
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 24, in talk_to_me
+    next_stat = states[current_stat+1]
+IndexError: tuple index out of range
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 24, in talk_to_me
+    next_stat = states[current_stat+1]
+IndexError: tuple index out of range
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 26, in talk_to_me
+    change_status(user, next_stat)
+  File "c:\projects\bot_diplom\db.py", line 31, in change_status
+    db.users.update_one(
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\collection.py", line 1019, in update_one
+    self._update_retryable(
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\collection.py", line 868, in _update_retryable
+    return self.__database.client._retryable_write(
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\mongo_client.py", line 1498, in _retryable_write
+    return self._retry_with_session(retryable, func, s, None)
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\mongo_client.py", line 1384, in _retry_with_session
+    return self._retry_internal(retryable, func, session, bulk)
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\mongo_client.py", line 1416, in _retry_internal
+    return func(session, sock_info, retryable)
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\collection.py", line 860, in _update
+    return self._update(
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\collection.py", line 837, in _update
+    _check_write_command_response(result)
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\helpers.py", line 230, in _check_write_command_response
+    _raise_last_write_error(write_errors)
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\helpers.py", line 212, in _raise_last_write_error
+    raise WriteError(error.get("errmsg"), error.get("code"), error)
+pymongo.errors.WriteError: The field 'status' must be an array but is of type string in document {_id: ObjectId('5f7c6a95f925df71481dd642')}, full error: {'index': 0, 'code': 2, 'errmsg': "The field 'status' must be an array but is of type string in document {_id: ObjectId('5f7c6a95f925df71481dd642')}"}
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 26, in talk_to_me
+    change_status(user, next_stat)
+  File "c:\projects\bot_diplom\db.py", line 31, in change_status
+    db.users.update_one(
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\collection.py", line 1019, in update_one
+    self._update_retryable(
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\collection.py", line 868, in _update_retryable
+    return self.__database.client._retryable_write(
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\mongo_client.py", line 1498, in _retryable_write
+    return self._retry_with_session(retryable, func, s, None)
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\mongo_client.py", line 1384, in _retry_with_session
+    return self._retry_internal(retryable, func, session, bulk)
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\mongo_client.py", line 1416, in _retry_internal
+    return func(session, sock_info, retryable)
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\collection.py", line 860, in _update
+    return self._update(
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\collection.py", line 837, in _update
+    _check_write_command_response(result)
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\helpers.py", line 230, in _check_write_command_response
+    _raise_last_write_error(write_errors)
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\helpers.py", line 212, in _raise_last_write_error
+    raise WriteError(error.get("errmsg"), error.get("code"), error)
+pymongo.errors.WriteError: The field 'status' must be an array but is of type string in document {_id: ObjectId('5f7c6a95f925df71481dd642')}, full error: {'index': 0, 'code': 2, 'errmsg': "The field 'status' must be an array but is of type string in document {_id: ObjectId('5f7c6a95f925df71481dd642')}"}
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 33, in talk_to_me
+    context.user_data["anketa"] = {questions: user_text}
+TypeError: unhashable type: 'dict'
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 33, in talk_to_me
+    context.user_data["anketa"] = {questions: user_text}
+TypeError: unhashable type: 'dict'
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 33, in talk_to_me
+    context.user_data["anketa"] = {questions: user_text}
+TypeError: unhashable type: 'dict'
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 24, in talk_to_me
+    next_stat = states[current_stat+1]
+IndexError: tuple index out of range
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 24, in talk_to_me
+    next_stat = states[current_stat+1]
+IndexError: tuple index out of range
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 33, in talk_to_me
+    context.user_data["anketa"] = {'status': user_text}
+TypeError: unhashable type: 'dict'
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 33, in talk_to_me
+    context.user_data["anketa"] = {'status': user_text}
+TypeError: unhashable type: 'dict'
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 33, in talk_to_me
+    context.user_data["anketa"] = {'status': user_text}
+TypeError: unhashable type: 'dict'
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 24, in talk_to_me
+    next_stat = states[current_stat+1]
+IndexError: tuple index out of range
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 24, in talk_to_me
+    next_stat = states[current_stat+1]
+IndexError: tuple index out of range
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 35, in talk_to_me
+    save_anketa(db, user['user_id'], context.user_data['anketa'])
+  File "c:\projects\bot_diplom\db.py", line 45, in save_anketa
+    db.users.update_one(
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\collection.py", line 1019, in update_one
+    self._update_retryable(
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\collection.py", line 868, in _update_retryable
+    return self.__database.client._retryable_write(
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\mongo_client.py", line 1498, in _retryable_write
+    return self._retry_with_session(retryable, func, s, None)
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\mongo_client.py", line 1384, in _retry_with_session
+    return self._retry_internal(retryable, func, session, bulk)
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\mongo_client.py", line 1416, in _retry_internal
+    return func(session, sock_info, retryable)
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\collection.py", line 860, in _update
+    return self._update(
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\collection.py", line 829, in _update
+    result = sock_info.command(
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\pool.py", line 699, in command
+    self._raise_connection_failure(error)
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\pool.py", line 683, in command
+    return command(self, dbname, spec, slave_ok,
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\network.py", line 120, in command
+    request_id, msg, size, max_doc_size = message._op_msg(
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\message.py", line 714, in _op_msg
+    return _op_msg_uncompressed(
+bson.errors.InvalidDocument: documents must have only string keys, key was ('start', 'name', 'city', 'email')
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 35, in talk_to_me
+    save_anketa(db, user['user_id'], context.user_data['anketa'])
+  File "c:\projects\bot_diplom\db.py", line 45, in save_anketa
+    db.users.update_one(
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\collection.py", line 1019, in update_one
+    self._update_retryable(
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\collection.py", line 868, in _update_retryable
+    return self.__database.client._retryable_write(
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\mongo_client.py", line 1498, in _retryable_write
+    return self._retry_with_session(retryable, func, s, None)
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\mongo_client.py", line 1384, in _retry_with_session
+    return self._retry_internal(retryable, func, session, bulk)
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\mongo_client.py", line 1416, in _retry_internal
+    return func(session, sock_info, retryable)
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\collection.py", line 860, in _update
+    return self._update(
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\collection.py", line 829, in _update
+    result = sock_info.command(
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\pool.py", line 699, in command
+    self._raise_connection_failure(error)
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\pool.py", line 683, in command
+    return command(self, dbname, spec, slave_ok,
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\network.py", line 120, in command
+    request_id, msg, size, max_doc_size = message._op_msg(
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\message.py", line 714, in _op_msg
+    return _op_msg_uncompressed(
+bson.errors.InvalidDocument: documents must have only string keys, key was ('start', 'name', 'city', 'email')
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 35, in talk_to_me
+    save_anketa(db, user['user_id'], context.user_data['anketa'])
+  File "c:\projects\bot_diplom\db.py", line 45, in save_anketa
+    db.users.update_one(
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\collection.py", line 1019, in update_one
+    self._update_retryable(
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\collection.py", line 868, in _update_retryable
+    return self.__database.client._retryable_write(
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\mongo_client.py", line 1498, in _retryable_write
+    return self._retry_with_session(retryable, func, s, None)
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\mongo_client.py", line 1384, in _retry_with_session
+    return self._retry_internal(retryable, func, session, bulk)
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\mongo_client.py", line 1416, in _retry_internal
+    return func(session, sock_info, retryable)
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\collection.py", line 860, in _update
+    return self._update(
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\collection.py", line 829, in _update
+    result = sock_info.command(
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\pool.py", line 699, in command
+    self._raise_connection_failure(error)
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\pool.py", line 683, in command
+    return command(self, dbname, spec, slave_ok,
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\network.py", line 120, in command
+    request_id, msg, size, max_doc_size = message._op_msg(
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\message.py", line 714, in _op_msg
+    return _op_msg_uncompressed(
+bson.errors.InvalidDocument: documents must have only string keys, key was ('start', 'name', 'city', 'email')
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 24, in talk_to_me
+    next_stat = states[current_stat+1]
+IndexError: tuple index out of range
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "bot.py", line 24, in talk_to_me
+    next_stat = states[current_stat+1]
+IndexError: tuple index out of range
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
