@@ -3,3 +3,4 @@ env/
 __pycache__/
 old_handlers/
 *.log
+bot.log
