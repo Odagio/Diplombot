@@ -35,9 +35,12 @@ def anketa_city(update, context):
 
 def anketa_role(update, context):
     context.user_data["anketa"]["role"] = update.message.text
+    reply_keyboard = [["1", "2", "3", "4", "5"]]
     update.message.reply_text(
-            "Расскажи, какой опыт у тебя в этой роли?"
-        )
+            "Расскажи, какой опыт у тебя в этой роли?",
+             reply_markup=ReplyKeyboardMarkup(reply_keyboard,
+                one_time_keyboard=True, resize_keyboard=True)
+            )
     return "exp_role"
 
 def anketa_exp_role(update, context):
@@ -98,7 +101,7 @@ def anketa_worth(update, context):
     return "mail"    
 
 
-def anketa_contacts(update, context):
+def anketa_mail(update, context):
     context.user_data["anketa"]["mail"] = update.message.text
     update.message.reply_text(
         """Оставьте свой номер телефон или
@@ -107,7 +110,7 @@ def anketa_contacts(update, context):
     return "contacts"
 
 
-def anketa_comment(update, context):
+def anketa_contacts_end(update, context):
     """ю"""
     context.user_data['anketa']['contacts'] = update.message.text
     user = get_or_create_user(db, update.effective_user,
@@ -139,3 +142,8 @@ def format_anketa(anketa):
 
 def anketa_dontknow(update, context):
     update.message.reply_text("я вас не понимаю")
+
+def cancel(update, context):
+    """ Cancel current conversation """
+    update.message.reply_text('Conversation ended')
+    return ConversationHandler.END
