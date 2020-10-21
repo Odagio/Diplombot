@@ -1,11 +1,12 @@
-import logging
-from anketa_applicant import (anketa_start, anketa_name, anketa_city, anketa_skip, anketa_role, anketa_exp_role, anketa_tuition,
-anketa_previous_exp, anketa_superpower, anketa_purpose, anketa_time_work, anketa_worth, anketa_mail, anketa_skip,  anketa_contacts_end, anketa_dontknow, cancel)
+from anketa_applicant import (anketa_start, anketa_name, anketa_city, anketa_skip, anketa_role, anketa_exp_role,
+                              anketa_tuition,anketa_previous_exp, anketa_superpower, anketa_purpose, anketa_time_work,
+                              anketa_worth, anketa_mail, anketa_skip,  anketa_contacts_end, anketa_dontknow, cancel)
 from anketa_prod_owner import (anketa_start_own, anketa_own_name, anketa_own_city, anketa_own_project_name,
-anketa_own_working_condition, anketa_own_mvp, anketa_own_presentation, anketa_own_team, anketa_own_mentor, anketa_own_mail,
-anketa_own_skip, anketa_own_contacts_end   )
+                               anketa_own_working_condition, anketa_own_mvp, anketa_own_presentation, anketa_own_team,
+                               anketa_own_mentor, anketa_own_mail, anketa_own_skip, anketa_own_contacts_end)
 from db import db, get_or_create_user, save_anketa, save_own_anketa, get_or_create_own
 from handlers import greet_user, admin_bot
+import logging
 from telegram.ext import Updater, CommandHandler, MessageHandler,ConversationHandler, Filters
 import settings
 
@@ -38,11 +39,12 @@ def main():
       ]
       },
       fallbacks = [
-               CommandHandler("restart", cancel),
+              #  CommandHandler("restart", cancel),
                MessageHandler(Filters.text | Filters.video | Filters.photo | Filters.document | Filters.location, anketa_dontknow)
       ] 
       )
     
+
     anketa_b = ConversationHandler(
       entry_points = [
         MessageHandler(Filters.regex('^(Владелец продукта)$'), anketa_start_own)
@@ -67,6 +69,7 @@ def main():
                MessageHandler(Filters.text | Filters.video | Filters.photo | Filters.document | Filters.location, anketa_dontknow)
       ] 
       )
+    
     
     dp.add_handler(CommandHandler('start', greet_user))
     dp.add_handler(CommandHandler('admin', admin_bot))

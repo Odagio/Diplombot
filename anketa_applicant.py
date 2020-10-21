@@ -5,6 +5,7 @@ from utils import main_keyboard
 
 
 def anketa_start(update, context):
+    '''Функция открывает диалог, тут же записывает в mongo переменной user в коллекцию users'''
     user = get_or_create_user(db, update.effective_user,
                               update.message.chat.id)
     update.message.reply_text(
@@ -21,6 +22,7 @@ def anketa_name(update, context):
         update.message.reply_text("Пожалуйста введите имя и фамилию")
         return "name"
     else:
+        '''здесь анкета переписывается, если введено имя не правильно'''
         context.user_data["anketa"] = {"name": user_name}
         update.message.reply_text(
             "Из какого ты города?"
@@ -113,7 +115,7 @@ def anketa_mail(update, context):
 
 
 def anketa_contacts_end(update, context):
-    """ю"""
+    '''анкета принимает на вход контакты и записывает в монго все данные'''
     context.user_data['anketa']['contacts'] = update.message.text
     user = get_or_create_user(db, update.effective_user,
                               update.message.chat_id)

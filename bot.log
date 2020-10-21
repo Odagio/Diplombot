@@ -3567,3 +3567,151 @@ Traceback (most recent call last):
 KeyError: 'name_own'
 INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
 WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\conversationhandler.py", line 465, in handle_update
+    new_state = handler.handle_update(update, dispatcher, check_result, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "c:\projects\bot_diplom\anketa_prod_owner.py", line 119, in anketa_own_contacts_end
+    user_text = format_anketa(context.user_data['anketa'])
+  File "c:\projects\bot_diplom\anketa_prod_owner.py", line 136, in format_anketa
+    user_text = f"""<b>Имя Фамилия:</b> {anketa["name_own"]}
+KeyError: 'name_own'
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\conversationhandler.py", line 465, in handle_update
+    new_state = handler.handle_update(update, dispatcher, check_result, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "c:\projects\bot_diplom\anketa_prod_owner.py", line 119, in anketa_own_contacts_end
+    user_text = format_anketa(context.user_data['anketa'])
+  File "c:\projects\bot_diplom\anketa_prod_owner.py", line 136, in format_anketa
+    user_text = f"""<b>Имя Фамилия:</b> {anketa["name_own"]}
+KeyError: 'name_own'
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\conversationhandler.py", line 465, in handle_update
+    new_state = handler.handle_update(update, dispatcher, check_result, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "c:\projects\bot_diplom\anketa_prod_owner.py", line 119, in anketa_own_contacts_end
+    user_text = format_anketa(context.user_data['anketa'])
+  File "c:\projects\bot_diplom\anketa_prod_owner.py", line 136, in format_anketa
+    user_text = f"""<b>Имя Фамилия:</b> {anketa['name_own']}
+KeyError: 'name_own'
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\conversationhandler.py", line 465, in handle_update
+    new_state = handler.handle_update(update, dispatcher, check_result, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "c:\projects\bot_diplom\anketa_prod_owner.py", line 120, in anketa_own_contacts_end
+    update.message.reply_text("Спасибо мы записали данные", user_text, reply_markup=main_keyboard(),
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\message.py", line 515, in reply_text
+    return self.bot.send_message(self.chat_id, *args, **kwargs)
+TypeError: send_message() got multiple values for argument 'parse_mode'
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\conversationhandler.py", line 465, in handle_update
+    new_state = handler.handle_update(update, dispatcher, check_result, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "c:\projects\bot_diplom\anketa_prod_owner.py", line 59, in anketa_own_working_condition
+    context.user_data["anketa"] ["working_condition_own": work_cond] =update.message.text
+TypeError: unhashable type: 'slice'
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\conversationhandler.py", line 465, in handle_update
+    new_state = handler.handle_update(update, dispatcher, check_result, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "c:\projects\bot_diplom\anketa_prod_owner.py", line 120, in anketa_own_contacts_end
+    update.message.reply_text("Спасибо мы записали данные", user_text, reply_markup=main_keyboard(),
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\message.py", line 515, in reply_text
+    return self.bot.send_message(self.chat_id, *args, **kwargs)
+TypeError: send_message() got multiple values for argument 'parse_mode'
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\conversationhandler.py", line 465, in handle_update
+    new_state = handler.handle_update(update, dispatcher, check_result, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "c:\projects\bot_diplom\anketa_prod_owner.py", line 120, in anketa_own_contacts_end
+    update.message.reply_text(f"Спасибо мы записали данные, {user_text}", user_text, reply_markup=main_keyboard(),
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\message.py", line 515, in reply_text
+    return self.bot.send_message(self.chat_id, *args, **kwargs)
+TypeError: send_message() got multiple values for argument 'parse_mode'
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\conversationhandler.py", line 465, in handle_update
+    new_state = handler.handle_update(update, dispatcher, check_result, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "c:\projects\bot_diplom\anketa_prod_owner.py", line 120, in anketa_own_contacts_end
+    update.message.reply_text(f"Спасибо мы записали данные, {user_text}", user_text, reply_markup=main_keyboard(),
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\message.py", line 515, in reply_text
+    return self.bot.send_message(self.chat_id, *args, **kwargs)
+TypeError: send_message() got multiple values for argument 'parse_mode'
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\conversationhandler.py", line 465, in handle_update
+    new_state = handler.handle_update(update, dispatcher, check_result, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "c:\projects\bot_diplom\anketa_prod_owner.py", line 120, in anketa_own_contacts_end
+    update.message.reply_text(user_text, user_text, reply_markup=main_keyboard(),
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\message.py", line 515, in reply_text
+    return self.bot.send_message(self.chat_id, *args, **kwargs)
+TypeError: send_message() got multiple values for argument 'parse_mode'
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!

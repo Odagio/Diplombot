@@ -5,6 +5,7 @@ from utils import main_keyboard
 
 
 def anketa_start_own(update, context):
+    '''Функция открывает диалог, тут же записывает в mongo переменной user в коллекцию own'''
     user = get_or_create_own(db, update.effective_user,
                               update.message.chat.id)
     update.message.reply_text(
@@ -56,7 +57,7 @@ def anketa_own_working_condition(update, context):
         update.message.reply_text("Напишите условия")
         return "working_condition_own"
     else:    
-        context.user_data["anketa"] = {"working_condition_own": work_cond}
+        context.user_data["anketa"]["working_condition_own"] = work_cond
         reply_keyboard = [["да", "нет"]]
         update.message.reply_text("MVP или что-то, что уже есть?",
                                   reply_markup=ReplyKeyboardMarkup(reply_keyboard,
@@ -73,7 +74,7 @@ def anketa_own_mvp(update, context):
         update.message.reply_text("Скинь ссылку на проект")
         return "mvp_own"
     else:
-        context.user_data["anketa"] = {"mvp_own": present}
+        context.user_data["anketa"]["mvp_own"] = present
         update.message.reply_text("Скинь ссылку на презентацию в Google Docs, чтоб мы могли показать её команде")
         return "presentation_own"
 
@@ -133,10 +134,10 @@ def anketa_own_skip(update, context):
 
 
 def format_anketa(anketa):
-    user_text = f"""<b>Имя Фамилия:</b> {anketa["name_own"]}
-<b>Оценка:</b> {anketa["city_own"]}"""
-    if anketa.get('contacts'):
-        user_text += f"\n<b>Комментарий:</b> {anketa['contacts']}"
+    user_text = f"""Мы записали анкету <b>Имя Фамилия:</b> {anketa['mvp_own']}
+<b>нужен ли ментор:</b> {anketa['mentor_own']}"""
+    if anketa.get('own_contacts'):
+        user_text += f"Мы записали анкету \n<b>Контакты:</b> {anketa['own_contacts']}"
     return user_text
 
 
