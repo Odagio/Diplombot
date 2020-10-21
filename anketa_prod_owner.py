@@ -1,6 +1,6 @@
 from telegram import ParseMode, ReplyKeyboardRemove, ReplyKeyboardMarkup
 from telegram.ext import ConversationHandler
-from db import db, get_or_create_own, save_own_anketa
+from db import db, get_or_create_own, save_own_anketa, get_or_create_user
 from utils import main_keyboard
 
 
@@ -10,39 +10,39 @@ def anketa_start_own(update, context):
 Напиши свое имя и фамилию!""",
         reply_mark=ReplyKeyboardRemove()
     )
-    return "name"
+    return "name_own"
 
 
 def anketa_own_name(update, context):
     user_name = update.message.text
     if len(user_name.split()) < 2:
         update.message.reply_text("Пожалуйста введите имя и фамилию")
-        return "name"
+        return "name_own"
     else:
-        context.user_data["anketa"] = {"name": user_name}
+        context.user_data["anketa"] = {"name_own": user_name}
         update.message.reply_text(
             "Из какого ты города?"
         )
-        return "city"
+        return "city_own"
 
 
 def anketa_own_city(update, context):
-    context.user_data["anketa"]["city"] = update.message.text
+    context.user_data["anketa"]["city_own"] = update.message.text
     update.message.reply_text(
             "Как называется твой проект? ?"
         )
-    return "project_name"
+    return "project_name_own"
 
 
 def anketa_own_project_name(update, context):
-    context.user_data["anketa"]["project_name"] = update.message.text
+    context.user_data["anketa"]["project_name_own"] = update.message.text
     reply_keyboard = [["платно", "бесплатно", "другое"]]
     update.message.reply_text("""Скажи, на каких условиях 
                               ты планируешь работать с командой? """,
                               reply_markup=ReplyKeyboardMarkup(reply_keyboard,
                               one_time_keyboard=True, resize_keyboard=True)
                               )
-    return "working_condition"
+    return "working_condition_own"
 
 
 def anketa_own_working_condition(update, context):
@@ -52,15 +52,15 @@ def anketa_own_working_condition(update, context):
     work_cond = update.message.text
     if work_cond == "другое":
         update.message.reply_text("Напишите условия")
-        return "working_condition"
+        return "working_condition_own"
     else:    
-        context.user_data["anketa"] = {"working_condition": work_cond}
+        context.user_data["anketa"] = {"working_condition_own": work_cond}
         reply_keyboard = [["да", "нет"]]
         update.message.reply_text("MVP или что-то, что уже есть?",
                                   reply_markup=ReplyKeyboardMarkup(reply_keyboard,
                                   one_time_keyboard=True, resize_keyboard=True)
         )
-        return "mvp"
+        return "mvp_own"
     
 
 def anketa_own_mvp(update, context):
@@ -69,26 +69,26 @@ def anketa_own_mvp(update, context):
     present = update.message.text
     if present == "да":
         update.message.reply_text("Скинь ссылку на проект")
-        return "mvp"
+        return "mvp_own"
     else:
-        context.user_data["anketa"] = {"mvp": present}
+        context.user_data["anketa"] = {"mvp_own": present}
         update.message.reply_text("Скинь ссылку на презентацию в Google Docs, чтоб мы могли показать её команде")
-        return "presentation"
+        return "presentation_own"
 
 
 def anketa_own_presentation(update, context):
-    context.user_data["anketa"]["presentation"] = update.message.text
+    context.user_data["anketa"]["presentation_own"] = update.message.text
     update.message.reply_text(
             "Кто тебе нужен в команду и почему?"
         )
-    return "team"
+    return "team_own"
 
 def anketa_own_team(update, context):
     context.user_data["anketa"]["team"] = update.message.text
     update.message.reply_text(
             "Нужен ли тебе ментор/трекер проекта??"
         )
-    return "mentor"
+    return "mentor_own"
 
 
 def anketa_own_mentor(update, context):
@@ -110,8 +110,8 @@ def anketa_own_mail(update, context):
 
 def anketa_own_contacts_end(update, context):
     """ю"""
-    context.user_data['anketa']['own_contacts'] = update.message.text
-    user = get_or_create_own(db, update.effective_user,
+    context.user_data["anketa"]["own_contacts"] = update.message.text
+    user = get_or_create_user(db, update.effective_user,
                               update.message.chat_id)
     save_own_anketa(db, user['user_id'], context.user_data['anketa'])
     user_text = format_anketa(context.user_data['anketa'])
@@ -121,7 +121,7 @@ def anketa_own_contacts_end(update, context):
 
 
 def anketa_own_skip(update, context):
-    user = get_or_create_own(db, update.effective_user,
+    user = get_or_create_user(db, update.effective_user,
                               update.message.chat_id)
     save_own_anketa(db, user['user_id'], context.user_data['anketa'])
     user_text = format_anketa(context.user_data['anketa'])
@@ -131,8 +131,8 @@ def anketa_own_skip(update, context):
 
 
 def format_anketa(anketa):
-    user_text = f"""<b>Имя Фамилия:</b> {anketa['name']}
-<b>Оценка:</b> {anketa['city']}"""
+    user_text = f"""<b>Имя Фамилия:</b> {anketa["name_own"]}
+<b>Оценка:</b> {anketa["city_own"]}"""
     if anketa.get('contacts'):
         user_text += f"\n<b>Комментарий:</b> {anketa['contacts']}"
     return user_text

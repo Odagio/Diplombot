@@ -48,18 +48,18 @@ def main():
         MessageHandler(Filters.regex('^(Владелец продукта)$'), anketa_start_own)
       ],
       states = {
-        "name": [MessageHandler(Filters.text, anketa_own_name)],
-        "city": [MessageHandler(Filters.text, anketa_own_city)],
-        "project_name": [MessageHandler(Filters.text, anketa_own_project_name)],
-        "working_condition": [MessageHandler(Filters.text, anketa_own_working_condition)],
-        "mvp": [MessageHandler(Filters.text, anketa_own_mvp)],
-        "presentation":[MessageHandler(Filters.text, anketa_own_presentation)],
-        "team":[MessageHandler(Filters.text, anketa_own_team)],
-        "mentor":[MessageHandler(Filters.text, anketa_own_mentor)],
+        "name_own": [MessageHandler(Filters.text, anketa_own_name)],
+        "city_own": [MessageHandler(Filters.text, anketa_own_city)],
+        "project_name_own": [MessageHandler(Filters.text, anketa_own_project_name)],
+        "working_condition_own": [MessageHandler(Filters.text, anketa_own_working_condition)],
+        "mvp_own": [MessageHandler(Filters.text, anketa_own_mvp)],
+        "presentation_own":[MessageHandler(Filters.text, anketa_own_presentation)],
+        "team_own":[MessageHandler(Filters.text, anketa_own_team)],
+        "mentor_own":[MessageHandler(Filters.text, anketa_own_mentor)],
         "own_mail":[MessageHandler(Filters.text, anketa_own_mail)],
         "own_contacts": [
         CommandHandler("skip", anketa_own_skip),
-        MessageHandler(Filters.text, anketa_contacts_end)
+        MessageHandler(Filters.text, anketa_own_contacts_end)
       ]
       },
       fallbacks = [
