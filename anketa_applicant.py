@@ -5,6 +5,8 @@ from utils import main_keyboard
 
 
 def anketa_start(update, context):
+    user = get_or_create_user(db, update.effective_user,
+                              update.message.chat.id)
     update.message.reply_text(
         """Привет! Чтобы я мог найти для тебя команду, мне нужно собрать немного информации о тебе.
 Напиши свое имя и фамилию!""",

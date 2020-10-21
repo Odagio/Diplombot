@@ -4,8 +4,8 @@ from utils import main_keyboard, admin_keyboard
 
 def greet_user(update, context):
     print('вызван/start')
-    user = get_or_create_user(db, update.effective_user,
-                              update.message.chat.id)
+    # user = get_or_create_user(db, update.effective_user,
+    #                           update.message.chat.id)
     update.message.reply_text(
           f"Здравствуй, пользователь! выбери кто ты?",
           reply_markup=main_keyboard()

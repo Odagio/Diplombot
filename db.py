@@ -56,10 +56,10 @@ def get_or_create_own(db, effective_user, chat_id):
 
 
 def save_own_anketa(db, user_id, anketa_data):
-    user = db.users.find_one({"user_id": user_id})
+    user = db.own.find_one({"user_id": user_id})
     anketa_data['created'] = datetime.now()
     if not 'anketa' in user:
-        db.own.insert_one(
+        db.own.update_one(
             {'_id': user['_id']},
             {'$set': {'anketa': [anketa_data]}}
         )

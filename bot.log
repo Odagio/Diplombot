@@ -3498,3 +3498,72 @@ Traceback (most recent call last):
 pymongo.errors.DuplicateKeyError: E11000 duplicate key error collection: diplombot.own index: _id_ dup key: { _id: ObjectId('5f8ff461e9ff188d8aa168c4') }, full error: {'index': 0, 'code': 11000, 'keyPattern': {'_id': 1}, 'keyValue': {'_id': ObjectId('5f8ff461e9ff188d8aa168c4')}, 'errmsg': "E11000 duplicate key error collection: diplombot.own index: _id_ dup key: { _id: ObjectId('5f8ff461e9ff188d8aa168c4') }"}
 INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
 WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\conversationhandler.py", line 465, in handle_update
+    new_state = handler.handle_update(update, dispatcher, check_result, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "c:\projects\bot_diplom\anketa_prod_owner.py", line 118, in anketa_own_contacts_end
+    save_own_anketa(db, user['user_id'], context.user_data['anketa'])
+  File "c:\projects\bot_diplom\db.py", line 62, in save_own_anketa
+    db.own.insert_one(
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\collection.py", line 698, in insert_one
+    self._insert(document,
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\collection.py", line 613, in _insert
+    return self._insert_one(
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\collection.py", line 602, in _insert_one
+    self.__database.client._retryable_write(
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\mongo_client.py", line 1498, in _retryable_write
+    return self._retry_with_session(retryable, func, s, None)
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\mongo_client.py", line 1384, in _retry_with_session
+    return self._retry_internal(retryable, func, session, bulk)
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\mongo_client.py", line 1416, in _retry_internal
+    return func(session, sock_info, retryable)
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\collection.py", line 600, in _insert_command
+    _check_write_command_response(result)
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\helpers.py", line 230, in _check_write_command_response
+    _raise_last_write_error(write_errors)
+  File "c:\projects\bot_diplom\env\lib\site-packages\pymongo\helpers.py", line 211, in _raise_last_write_error
+    raise DuplicateKeyError(error.get("errmsg"), 11000, error)
+pymongo.errors.DuplicateKeyError: E11000 duplicate key error collection: diplombot.own index: _id_ dup key: { _id: ObjectId('5f9005d5dd0d02988d361c99') }, full error: {'index': 0, 'code': 11000, 'keyPattern': {'_id': 1}, 'keyValue': {'_id': ObjectId('5f9005d5dd0d02988d361c99')}, 'errmsg': "E11000 duplicate key error collection: diplombot.own index: _id_ dup key: { _id: ObjectId('5f9005d5dd0d02988d361c99') }"}
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\conversationhandler.py", line 465, in handle_update
+    new_state = handler.handle_update(update, dispatcher, check_result, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "c:\projects\bot_diplom\anketa_prod_owner.py", line 119, in anketa_own_contacts_end
+    user_text = format_anketa(context.user_data['anketa'])
+  File "c:\projects\bot_diplom\anketa_prod_owner.py", line 136, in format_anketa
+    user_text = f"""<b>Имя Фамилия:</b> {anketa["name_own"]}
+KeyError: 'name_own'
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!
+INFO:root:Бот стартовал
+ERROR:telegram.ext.dispatcher:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\dispatcher.py", line 340, in process_update
+    handler.handle_update(update, self, check, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\conversationhandler.py", line 465, in handle_update
+    new_state = handler.handle_update(update, dispatcher, check_result, context)
+  File "c:\projects\bot_diplom\env\lib\site-packages\telegram\ext\handler.py", line 119, in handle_update
+    return self.callback(update, context)
+  File "c:\projects\bot_diplom\anketa_prod_owner.py", line 119, in anketa_own_contacts_end
+    user_text = format_anketa(context.user_data['anketa'])
+  File "c:\projects\bot_diplom\anketa_prod_owner.py", line 136, in format_anketa
+    user_text = f"""<b>Имя Фамилия:</b> {anketa["name_own"]}
+KeyError: 'name_own'
+INFO:telegram.ext.updater:Received signal 2 (SIGINT), stopping...
+WARNING:telegram.ext.updater:Exiting immediately!

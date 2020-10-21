@@ -5,6 +5,8 @@ from utils import main_keyboard
 
 
 def anketa_start_own(update, context):
+    user = get_or_create_own(db, update.effective_user,
+                              update.message.chat.id)
     update.message.reply_text(
         """Привет! Я бот. Чтобы я мог найти для тебя команду, мне нужно собрать информацию.
 Напиши свое имя и фамилию!""",
@@ -84,7 +86,7 @@ def anketa_own_presentation(update, context):
     return "team_own"
 
 def anketa_own_team(update, context):
-    context.user_data["anketa"]["team"] = update.message.text
+    context.user_data["anketa"]["mentor_own"] = update.message.text
     update.message.reply_text(
             "Нужен ли тебе ментор/трекер проекта??"
         )
@@ -92,7 +94,7 @@ def anketa_own_team(update, context):
 
 
 def anketa_own_mentor(update, context):
-    context.user_data["anketa"]["mentor"] = update.message.text
+    context.user_data["anketa"]["mentor_own"] = update.message.text
     update.message.reply_text(
             """Спасибо за предоставленную информацию. По ходу набора группы я буду держать тебя в курсе.
 Оставьте свою почту"""
