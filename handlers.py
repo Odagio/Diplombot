@@ -14,7 +14,7 @@ def greet_user(update, context):
 def admin_bot(update, context):
     print('кто то вызвал админа')
     user = chek_admin(db, update.effective_user,
-                              update.message.chat.id)
+                              update.message.chat.id) 
     if user:
         print('пришел админ')
         update.message.reply_text(

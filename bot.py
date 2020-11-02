@@ -9,6 +9,7 @@ from handlers import greet_user, admin_bot
 import logging
 from telegram.ext import Updater, CommandHandler, MessageHandler,ConversationHandler, Filters
 import settings
+from admin_handler import admin_text
 
 logging.basicConfig(filename='bot.log', level=logging.INFO)
 
@@ -73,6 +74,7 @@ def main():
     
     dp.add_handler(CommandHandler('start', greet_user))
     dp.add_handler(CommandHandler('admin', admin_bot))
+    dp.add_handler(MessageHandler(Filters.regex('^(написать пользователю)$'), admin_text))
     dp.add_handler(anketa_a)
     dp.add_handler(anketa_b)
 

@@ -1,6 +1,6 @@
+from db import db, get_or_create_own, save_own_anketa, get_or_create_user
 from telegram import ParseMode, ReplyKeyboardRemove, ReplyKeyboardMarkup
 from telegram.ext import ConversationHandler
-from db import db, get_or_create_own, save_own_anketa, get_or_create_user
 from utils import main_keyboard
 
 
@@ -22,6 +22,7 @@ def anketa_own_name(update, context):
         update.message.reply_text("Пожалуйста введите имя и фамилию")
         return "name_own"
     else:
+        '''context.user_data переписывает анкету, то есть заменяет то, что уже записано '''
         context.user_data["anketa"] = {"name_own": user_name}
         update.message.reply_text(
             "Из какого ты города?"
@@ -87,7 +88,7 @@ def anketa_own_presentation(update, context):
     return "team_own"
 
 def anketa_own_team(update, context):
-    context.user_data["anketa"]["mentor_own"] = update.message.text
+    context.user_data["anketa"]["team_own"] = update.message.text
     update.message.reply_text(
             "Нужен ли тебе ментор/трекер проекта??"
         )
@@ -112,32 +113,40 @@ def anketa_own_mail(update, context):
 
 
 def anketa_own_contacts_end(update, context):
-    """ю"""
     context.user_data["anketa"]["own_contacts"] = update.message.text
-    user = get_or_create_user(db, update.effective_user,
+    user = get_or_create_own(db, update.effective_user,
                               update.message.chat_id)
     save_own_anketa(db, user['user_id'], context.user_data['anketa'])
-    user_text = format_anketa(context.user_data['anketa'])
+    user_text = format_anketa_own(context.user_data['anketa'])
     update.message.reply_text(user_text, reply_markup=main_keyboard(),
                               parse_mode=ParseMode.HTML)
     return ConversationHandler.END
 
 
 def anketa_own_skip(update, context):
-    user = get_or_create_user(db, update.effective_user,
+    user = get_or_create_own(db, update.effective_user,
                               update.message.chat_id)
     save_own_anketa(db, user['user_id'], context.user_data['anketa'])
-    user_text = format_anketa(context.user_data['anketa'])
+    user_text = format_anketa_own(context.user_data['anketa'])
     update.message.reply_text(user_text, reply_markup=main_keyboard(),
                               parse_mode=ParseMode.HTML)
     return ConversationHandler.END
 
 
-def format_anketa(anketa):
-    user_text = f"""Мы записали анкету <b>Имя Фамилия:</b> {anketa['mvp_own']}
-<b>нужен ли ментор:</b> {anketa['mentor_own']}"""
+def format_anketa_own(anketa):
+    user_text = f"""Мы записали анкету, если есть ошибка в данных, то пройдите ее еще раз
+<b>имя фамилия:</b> {anketa['name_own']}
+<b>город:</b> {anketa['city_own']}
+<b>название проекта:</b> {anketa['working_condition_own']}
+<b>условия работы:</b> {anketa['project_name_own']}
+<b>mvp:</b> {anketa['mvp_own']}
+<b>презентация:</b> {anketa['presentation_own']}
+<b>команда:</b> {anketa['team_own']}
+<b>ментор:</b> {anketa['mentor_own']}
+<b>почта:</b> {anketa['own_mail']}
+"""
     if anketa.get('own_contacts'):
-        user_text += f"Мы записали анкету \n<b>Контакты:</b> {anketa['own_contacts']}"
+        user_text += f"<b>Контакты:</b> {anketa['own_contacts']}"
     return user_text
 
 
