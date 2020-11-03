@@ -68,8 +68,8 @@ def anketa_own_working_condition(update, context):
     
 
 def anketa_own_mvp(update, context):
-    """Функция принимает ответ на вопрос наличия MVP, если пользователь ответить утвердительно, то бот 
-    попросит дать ссылку"""
+    '''Функция принимает ответ на вопрос наличия MVP, если пользователь ответить утвердительно, то бот 
+    попросит дать ссылку'''
     present = update.message.text
     if present == "да":
         update.message.reply_text("Скинь ссылку на проект")
@@ -87,6 +87,7 @@ def anketa_own_presentation(update, context):
         )
     return "team_own"
 
+
 def anketa_own_team(update, context):
     context.user_data["anketa"]["team_own"] = update.message.text
     update.message.reply_text(
@@ -102,6 +103,7 @@ def anketa_own_mentor(update, context):
 Оставьте свою почту"""
         )
     return "own_mail"
+
 
 def anketa_own_mail(update, context):
     context.user_data["anketa"]["own_mail"] = update.message.text
@@ -153,9 +155,3 @@ def format_anketa_own(anketa):
 def anketa_dontknow(update, context):
     update.message.reply_text("я вас не понимаю")
 
-
-
-# def cancel_own(update, context):
-#     """ Cancel current conversation """
-#     update.message.reply_text('Conversation ended')
-#     return ConversationHandler.END

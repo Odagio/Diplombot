@@ -5,9 +5,11 @@ client = MongoClient(settings.MONGO_LINK)
 
 db = client[settings.MONGO_DB]
 
+
 def chek_admin(db, effective_user,chat_id):
     user = db.admin_bot.find_one({"chat_id": chat_id})
     return user
+
 
 def find_all_users (db, effective_user,chat_id):
     user_find = db.users.find({})
@@ -16,6 +18,7 @@ def find_all_users (db, effective_user,chat_id):
         usersid.append(user)
     print (usersid)
     return usersid
+
 
 def get_or_create_user(db, effective_user, chat_id):
     user = db.users.find_one({"user_id":effective_user.id})
@@ -75,3 +78,4 @@ def save_own_anketa(db, user_id, anketa_data):
             {'_id': user['_id']},
             {'$push': {'anketa': anketa_data}}
         )
+        

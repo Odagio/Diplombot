@@ -37,6 +37,7 @@ def anketa_city(update, context):
         )
     return "role"
 
+
 def anketa_role(update, context):
     context.user_data["anketa"]["role"] = update.message.text
     reply_keyboard = [["1", "2", "3", "4", "5"]]
@@ -46,6 +47,7 @@ def anketa_role(update, context):
                 one_time_keyboard=True, resize_keyboard=True)
             )
     return "exp_role"
+
 
 def anketa_exp_role(update, context):
     context.user_data["anketa"]["exp_role"] = update.message.text
@@ -137,17 +139,23 @@ def anketa_skip(update, context):
 
 
 def format_anketa(anketa):
-    user_text = f"""<b>Имя Фамилия:</b> {anketa['name']}
-<b>Оценка:</b> {anketa['city']}"""
+    user_text = f"""Мы записали анкету, если есть ошибка в данных, то пройдите ее еще раз
+<b>имя фамилия:</b> {anketa['name']}
+<b>город:</b> {anketa['city']}
+<b>роль в проекте:</b> {anketa['role']}
+<b>опыт:</b> {anketa['exp_role']}
+<b>обучение:</b> {anketa['tuition']}
+<b>предыдущий опыт:</b> {anketa['previous_exp']}
+<b>супер сила:</b> {anketa['superpower']}
+<b>получение от проекта:</b> {anketa['purpose']}
+<b>время работы:</b> {anketa['time_work']}
+<b>важность в проекте:</b> {anketa['worth']}
+<b>почта:</b> {anketa['mail']}
+"""
     if anketa.get('contacts'):
-        user_text += f"\n<b>Комментарий:</b> {anketa['contacts']}"
+        user_text += f"<b>телефон:</b> {anketa['contacts']}"
     return user_text
 
 
 def anketa_dontknow(update, context):
     update.message.reply_text("я вас не понимаю")
-
-def cancel(update, context):
-    """ Cancel current conversation """
-    update.message.reply_text('Conversation ended')
-    return ConversationHandler.END

@@ -11,6 +11,7 @@ def greet_user(update, context):
           reply_markup=main_keyboard()
           )
 
+
 def admin_bot(update, context):
     print('кто то вызвал админа')
     user = chek_admin(db, update.effective_user,
