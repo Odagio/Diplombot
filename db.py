@@ -116,5 +116,4 @@ def unsubscribe_own_db(db, user_data):
 
 def get_subscribed_own(db):
     return db.own.find({'subscribed': True})
-
-        
+       

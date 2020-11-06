@@ -5,13 +5,6 @@ from telegram.ext import ConversationHandler
 from utils import admin_keyboard
 
 
-
-# def send_updates(update, context):
-#     admin_text = update.message.text
-#     for user in get_subscribed(db):
-#         context.bot.send_message(chat_id=user['chat_id'], text=f'{admin_text}!')  
-
-
 def admin_start(update, context):
     user = chek_admin(db, update.effective_user,
                               update.message.chat.id) 
@@ -55,10 +48,10 @@ def admin_text_for_own(update, context):
     return ConversationHandler.END
 
 
-
-
-
-
+# def send_updates(update, context):
+#     admin_text = update.message.text
+#     for user in get_subscribed(db):
+#         context.bot.send_message(chat_id=user['chat_id'], text=f'{admin_text}!')  
 
 
 # def admin_text (update, context):
@@ -74,18 +67,8 @@ def admin_text_for_own(update, context):
     
 #     '''функция обращается в монго и показывает список юзеров, в последствии дает возможность написать им'''
 
-
-
-
-
-
-
-
-
 # [
 #     {'_id': ObjectId('5f818b652d94d0e42a285b64'), 'user_id': 253662502, 'first_name': 'Vectormars', 'last_name': None, 'username': 'Vectormars', 'chat_id': 253662502, 'status': 'start'}, 
 #     {'_id': ObjectId('5f9d3c0a5528c2a9883159a4'), 'user_id': 548824279, 'first_name': 'VK-innovation', 'last_name': None, 'username': 'Odagios', 'chat_id': 548824279, 'status': 'start'}
 # ]
-    
-
-                           
+                       

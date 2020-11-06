@@ -25,17 +25,6 @@ def greet_user(update, context):
 #     else:
 #         update.message.reply_text("не понимаю комманду!")
 
-def admin_bot(update, context):
-    print('кто то вызвал админа')
-    user = chek_admin(db, update.effective_user,
-                              update.message.chat.id) 
-    if user:
-        print('пришел админ')
-        update.message.reply_text(
-            f"Здравствуй, Админ! напиши сообщение стажерам "            
-            )
-    else:
-        update.message.reply_text("не понимаю комманду!")
 
 def subscribe(update, context):
     user = get_or_create_user(db, update.effective_user, update.message)
