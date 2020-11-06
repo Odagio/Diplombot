@@ -100,8 +100,7 @@ def anketa_time_work(update, context):
 def anketa_worth(update, context):
     context.user_data["anketa"]["worth"] = update.message.text
     update.message.reply_text(
-             """Спасибо за предоставленную информацию. 
-По твоим данным мы будем периодически присылать тебе презентации проектов.
+             """
 Оставьте свою почту"""
         )
     return "mail"    
@@ -111,7 +110,7 @@ def anketa_mail(update, context):
     context.user_data["anketa"]["mail"] = update.message.text
     update.message.reply_text(
         """Оставьте свой номер телефон или
-         пропустите этот шаг, введя /skip"""
+пропустите этот шаг, введя /skip"""
     )
     return "contacts"
 
@@ -139,7 +138,10 @@ def anketa_skip(update, context):
 
 
 def format_anketa(anketa):
-    user_text = f"""Мы записали анкету, если есть ошибка в данных, то пройдите ее еще раз
+    user_text = f"""Мы записали анкету, если есть ошибка в данных, то пройдите ее еще раз.
+\n
+<b>чтобы получать презентации проектов, набери комманду /subscribe, если хочешь отписаться то /unsbscribe:</b>
+\n
 <b>имя фамилия:</b> {anketa['name']}
 <b>город:</b> {anketa['city']}
 <b>роль в проекте:</b> {anketa['role']}
@@ -151,6 +153,7 @@ def format_anketa(anketa):
 <b>время работы:</b> {anketa['time_work']}
 <b>важность в проекте:</b> {anketa['worth']}
 <b>почта:</b> {anketa['mail']}
+<b>Спасибо за предоставленную информацию. 
 """
     if anketa.get('contacts'):
         user_text += f"<b>телефон:</b> {anketa['contacts']}"

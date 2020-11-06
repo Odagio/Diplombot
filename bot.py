@@ -5,11 +5,11 @@ from anketa_prod_owner import (anketa_start_own, anketa_own_name, anketa_own_cit
                                anketa_own_working_condition, anketa_own_mvp, anketa_own_presentation, anketa_own_team,
                                anketa_own_mentor, anketa_own_mail, anketa_own_skip, anketa_own_contacts_end)
 from db import db, get_or_create_user, save_anketa, save_own_anketa, get_or_create_own
-from handlers import greet_user, admin_bot,subscribe, unsubscribe
+from handlers import greet_user, admin_bot, subscribe, unsubscribe, own_subscribe, own_unsubscribe
 import logging
 from telegram.ext import Updater, CommandHandler, MessageHandler,ConversationHandler, Filters
 import settings
-from admin_handler import send_updates
+from admin_handler import  admin_start, send_to_application, send_to_owns, admin_text_for_app,admin_text_for_own
 
 logging.basicConfig(filename='bot.log', level=logging.INFO)
 
@@ -17,11 +17,33 @@ logging.basicConfig(filename='bot.log', level=logging.INFO)
 def main():
     mybot = Updater(settings.API_KEY, use_context=True)
 
-    jq = mybot.job_queue
-    jq.run_repeating(send_updates, interval=100)
+    # jq = mybot.job_queue
+    # jq.run_repeating(send_updates, interval=100)
 
 
     dp = mybot.dispatcher
+
+    bot_send_messages = ConversationHandler(
+      entry_points = [
+        CommandHandler('superadmin', admin_start)
+      ],
+      states = {
+        'choice':[ 
+         CommandHandler('applicants', send_to_application),
+         CommandHandler('owns', send_to_owns)
+         ],
+        'text_for_app': [MessageHandler(Filters.text, admin_text_for_app)],
+        'text_for_own': [MessageHandler(Filters.text, admin_text_for_own)]
+      },
+        # CommandHandler("own", send_to_own)
+        # "application":[MessageHandler(Filters.text, send_to_application)],
+        # "own":[MessageHandler(Filters.text, send_to_own)]
+      
+      fallbacks = [
+              
+               MessageHandler(Filters.text | Filters.video | Filters.photo | Filters.document | Filters.location, anketa_dontknow)
+      ] 
+      )
 
     anketa_a = ConversationHandler(
       entry_points = [
@@ -81,10 +103,13 @@ def main():
     dp.add_handler(CommandHandler('admin', admin_bot))
     dp.add_handler(CommandHandler('subscribe', subscribe))
     dp.add_handler(CommandHandler('unsubscribe', unsubscribe))
-    dp.add_handler(CommandHandler('applicants', send_updates))
+    dp.add_handler(CommandHandler('subscribe_me', own_subscribe ))
+    dp.add_handler(CommandHandler('unsubscribe_me', own_unsubscribe))
+    # dp.add_handler(MessageHandler(Filters.text, send_updates))
     # dp.add_handler(MessageHandler(Filters.regex('^(написать пользователю)$'), send_updates))
     dp.add_handler(anketa_a)
     dp.add_handler(anketa_b)
+    dp.add_handler(bot_send_messages)
 
     logging.info("Бот стартовал")
     mybot.start_polling()

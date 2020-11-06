@@ -99,7 +99,7 @@ def anketa_own_team(update, context):
 def anketa_own_mentor(update, context):
     context.user_data["anketa"]["mentor_own"] = update.message.text
     update.message.reply_text(
-            """Спасибо за предоставленную информацию. По ходу набора группы я буду держать тебя в курсе.
+            """
 Оставьте свою почту"""
         )
     return "own_mail"
@@ -109,7 +109,7 @@ def anketa_own_mail(update, context):
     context.user_data["anketa"]["own_mail"] = update.message.text
     update.message.reply_text(
         """Оставьте свой номер телефон или
-         пропустите этот шаг, введя /skip"""
+пропустите этот шаг, введя /skip"""
     )
     return "own_contacts"
 
@@ -136,7 +136,10 @@ def anketa_own_skip(update, context):
 
 
 def format_anketa_own(anketa):
-    user_text = f"""Мы записали анкету, если есть ошибка в данных, то пройдите ее еще раз
+    user_text = f"""Мы записали анкету, если есть ошибка в данных, то пройдите ее еще раз.
+\n
+<b>чтобы получать презентации проектов, набери комманду /subscribe_me, если хочешь отписаться то /unsbscribe_me:</b>
+\n    
 <b>имя фамилия:</b> {anketa['name_own']}
 <b>город:</b> {anketa['city_own']}
 <b>название проекта:</b> {anketa['working_condition_own']}
@@ -154,4 +157,3 @@ def format_anketa_own(anketa):
 
 def anketa_dontknow(update, context):
     update.message.reply_text("я вас не понимаю")
-

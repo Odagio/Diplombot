@@ -97,3 +97,24 @@ def unsubscribe_user(db, user_data):
 
 def get_subscribed(db):
     return db.users.find({'subscribed': True})
+
+
+def subscribe_own_db(db, user_data):
+    if not user_data.get('subscribed'):
+        db.own.update_one(
+            {'_id': user_data['_id']},
+            {'$set': {'subscribed': True}}
+        )
+
+
+def unsubscribe_own_db(db, user_data):
+            db.own.update_one(
+            {'_id': user_data['_id']},
+            {'$set': {'subscribed': False}}
+        )
+
+
+def get_subscribed_own(db):
+    return db.own.find({'subscribed': True})
+
+        
