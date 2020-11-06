@@ -10,5 +10,5 @@ def main_keyboard():
 
 def admin_keyboard():
     return ReplyKeyboardMarkup([
-          ['Написать в общий чат', 'написать пользователю']
+          ['/owns', '/applicants']
           ], one_time_keyboard=True, resize_keyboard=True)

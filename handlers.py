@@ -1,4 +1,4 @@
-from db import db, get_or_create_user, chek_admin
+from db import db, get_or_create_user, chek_admin,subscribe_user, unsubscribe_user
 from utils import main_keyboard, admin_keyboard
 
 
@@ -25,11 +25,15 @@ def admin_bot(update, context):
     else:
         update.message.reply_text("не понимаю комманду!")
 
-# def helloo (update,context):
-#     user = get_or_create_user(db, update.effective_user,update.message.chat.id)
-#     print (context)
-#     print(update['message']['chat']['id'])
-#     print(update['message']['chat']['username'])
+def subscribe(update, context):
+    user = get_or_create_user(db, update.effective_user, update.message)
+    subscribe_user(db, user)
+    update.message.reply_text('Вы подписались')
 
-#     update.message.reply_text("Здравствуй, пользователь, выбери кто ты?")
-#     return 'status'
+
+def unsubscribe(update, context):
+    user = get_or_create_user(db, update.effective_user, update.message)
+    unsubscribe_user(db, user)
+    update.message.reply_text('Вы отписались')
+
+

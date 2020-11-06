@@ -5,17 +5,22 @@ from anketa_prod_owner import (anketa_start_own, anketa_own_name, anketa_own_cit
                                anketa_own_working_condition, anketa_own_mvp, anketa_own_presentation, anketa_own_team,
                                anketa_own_mentor, anketa_own_mail, anketa_own_skip, anketa_own_contacts_end)
 from db import db, get_or_create_user, save_anketa, save_own_anketa, get_or_create_own
-from handlers import greet_user, admin_bot
+from handlers import greet_user, admin_bot,subscribe, unsubscribe
 import logging
 from telegram.ext import Updater, CommandHandler, MessageHandler,ConversationHandler, Filters
 import settings
-from admin_handler import admin_text
+from admin_handler import send_updates
 
 logging.basicConfig(filename='bot.log', level=logging.INFO)
 
 
 def main():
     mybot = Updater(settings.API_KEY, use_context=True)
+
+    jq = mybot.job_queue
+    jq.run_repeating(send_updates, interval=100)
+
+
     dp = mybot.dispatcher
 
     anketa_a = ConversationHandler(
@@ -74,7 +79,10 @@ def main():
     
     dp.add_handler(CommandHandler('start', greet_user))
     dp.add_handler(CommandHandler('admin', admin_bot))
-    dp.add_handler(MessageHandler(Filters.regex('^(написать пользователю)$'), admin_text))
+    dp.add_handler(CommandHandler('subscribe', subscribe))
+    dp.add_handler(CommandHandler('unsubscribe', unsubscribe))
+    dp.add_handler(CommandHandler('applicants', send_updates))
+    # dp.add_handler(MessageHandler(Filters.regex('^(написать пользователю)$'), send_updates))
     dp.add_handler(anketa_a)
     dp.add_handler(anketa_b)
 
