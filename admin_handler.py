@@ -1,4 +1,4 @@
-from db import (db, get_or_create_own,  get_or_create_user, find_all_users, get_subscribed, chek_admin,
+from db import (db, get_or_create_own,  get_or_create_user, get_subscribed, chek_admin,
                get_or_create_own, get_subscribed_own)
 from telegram import ParseMode, ReplyKeyboardRemove, ReplyKeyboardMarkup
 from telegram.ext import ConversationHandler

@@ -11,13 +11,13 @@ def chek_admin(db, effective_user,chat_id):
     return user
 
 
-def find_all_users (db, effective_user,chat_id):
-    user_find = db.users.find({})
-    usersid=[]
-    for user in user_find:
-        usersid.append(user)
-    print (usersid)
-    return usersid
+# def find_all_users (db, effective_user,chat_id):
+#     user_find = db.users.find({})
+#     usersid=[]
+#     for user in user_find:
+#         usersid.append(user)
+#     print (usersid)
+#     return usersid
 
 
 def get_or_create_user(db, effective_user, chat_id):
