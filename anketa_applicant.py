@@ -9,7 +9,7 @@ def anketa_start(update, context):
     user = get_or_create_user(db, update.effective_user,
                               update.message.chat.id)
     update.message.reply_text(
-        """Привет! Чтобы я мог найти для тебя команду, мне нужно собрать немного информации о тебе.
+        """Привет! Чтобы я смог найти для тебя команду и проект, мне нужно собрать немного информации о тебе.
 Напиши свое имя и фамилию!""",
         reply_mark=ReplyKeyboardRemove()
     )
@@ -19,7 +19,7 @@ def anketa_start(update, context):
 def anketa_name(update, context):
     user_name = update.message.text
     if len(user_name.split()) < 2:
-        update.message.reply_text("Пожалуйста введите имя и фамилию")
+        update.message.reply_text("Пожалуйста введи имя и фамилию")
         return "name"
     else:
         '''здесь анкета переписывается, если введено имя не правильно'''
@@ -40,9 +40,9 @@ def anketa_city(update, context):
 
 def anketa_role(update, context):
     context.user_data["anketa"]["role"] = update.message.text
-    reply_keyboard = [["1", "2", "3", "4", "5"]]
+    reply_keyboard = [["0", "0.5", "1", "2", "3+",]]
     update.message.reply_text(
-            "Расскажи, какой опыт у тебя в этой роли?",
+            "Расскажи, сколько лет ты этим занимаешься?",
              reply_markup=ReplyKeyboardMarkup(reply_keyboard,
                 one_time_keyboard=True, resize_keyboard=True)
             )
@@ -91,17 +91,24 @@ def anketa_purpose(update, context):
     
 def anketa_time_work(update, context):
     context.user_data["anketa"]["time_work"] = update.message.text
-    update.message.reply_text(
-            "Что для тебя важно на проекте?"
-        )
-    return "worth"    
+    reply_keyboard = [["платно", "бесплатно", "другие условия"]]
+    update.message.reply_text("""Скажи, на каких условиях 
+                              ты планируешь обучаться? """,
+                              reply_markup=ReplyKeyboardMarkup(reply_keyboard,
+                              one_time_keyboard=True, resize_keyboard=True)
+                              )
+    return "working_condition"   
 
 
-def anketa_worth(update, context):
-    context.user_data["anketa"]["worth"] = update.message.text
-    update.message.reply_text(
-             """
-Оставьте свою почту"""
+def anketa_working_condition(update, context):
+    work_cond = update.message.text
+    if work_cond == "другие условия":
+        update.message.reply_text("Напиши условия")
+        return "working_condition"
+    else:
+        context.user_data["anketa"]["working_condition"] = update.message.text
+        update.message.reply_text(
+             """Оставь свою почту"""
         )
     return "mail"    
 
@@ -109,7 +116,7 @@ def anketa_worth(update, context):
 def anketa_mail(update, context):
     context.user_data["anketa"]["mail"] = update.message.text
     update.message.reply_text(
-        """Оставьте свой номер телефон или
+        """Оставь свой номер телефон или
 пропустите этот шаг, введя /skip"""
     )
     return "contacts"
@@ -138,6 +145,7 @@ def anketa_skip(update, context):
 
 
 def format_anketa(anketa):
+    print ("html")
     user_text = f"""Мы записали анкету, если есть ошибка в данных, то пройдите ее еще раз.
 \n
 <b>чтобы получать презентации проектов, набери комманду /subscribe, если хочешь отписаться то /unsbscribe:</b>
@@ -151,11 +159,11 @@ def format_anketa(anketa):
 <b>супер сила:</b> {anketa['superpower']}
 <b>получение от проекта:</b> {anketa['purpose']}
 <b>время работы:</b> {anketa['time_work']}
-<b>важность в проекте:</b> {anketa['worth']}
+<b>условия работы:</b> {anketa['working_condition']}
 <b>почта:</b> {anketa['mail']}
-<b>Спасибо за предоставленную информацию. 
 """
     if anketa.get('contacts'):
+        print ("контакты")
         user_text += f"<b>телефон:</b> {anketa['contacts']}"
     return user_text
 

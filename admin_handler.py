@@ -40,6 +40,7 @@ def send_to_owns(update, context):
         update.message.reply_text("Пиши текст")
         return 'text_for_own'  
 
+
 def admin_text_for_own(update, context):
     print("настрой дб")         
     admin_text = update.message.text

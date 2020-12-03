@@ -1,15 +1,16 @@
 from anketa_applicant import (anketa_start, anketa_name, anketa_city, anketa_skip, anketa_role, anketa_exp_role,
                               anketa_tuition,anketa_previous_exp, anketa_superpower, anketa_purpose, anketa_time_work,
-                              anketa_worth, anketa_mail, anketa_skip,  anketa_contacts_end, anketa_dontknow)
+                             anketa_working_condition, anketa_mail, anketa_skip,  anketa_contacts_end, anketa_dontknow)
 from anketa_prod_owner import (anketa_start_own, anketa_own_name, anketa_own_city, anketa_own_project_name,
                                anketa_own_working_condition, anketa_own_mvp, anketa_own_presentation, anketa_own_team,
                                anketa_own_mentor, anketa_own_mail, anketa_own_skip, anketa_own_contacts_end)
 from db import db, get_or_create_user, save_anketa, save_own_anketa, get_or_create_own
-from handlers import greet_user, admin_bot, subscribe, unsubscribe, own_subscribe, own_unsubscribe
+from handlers import greet_user, subscribe, unsubscribe, own_subscribe, own_unsubscribe
 import logging
 from telegram.ext import Updater, CommandHandler, MessageHandler,ConversationHandler, Filters
 import settings
-from admin_handler import  admin_start, send_to_application, send_to_owns, admin_text_for_app,admin_text_for_own
+from admin_handler import  admin_start, send_to_application, send_to_owns, admin_text_for_app, admin_text_for_own
+
 
 logging.basicConfig(filename='bot.log', level=logging.INFO)
 
@@ -45,6 +46,7 @@ def main():
       ] 
       )
 
+
     anketa_a = ConversationHandler(
       entry_points = [
         MessageHandler(Filters.regex('^(Стажер)$'), anketa_start)
@@ -53,13 +55,14 @@ def main():
         "name": [MessageHandler(Filters.text, anketa_name)],
         "city": [MessageHandler(Filters.text, anketa_city)],
         "role": [MessageHandler(Filters.text, anketa_role)],
-        "exp_role": [MessageHandler(Filters.regex('^(1|2|3|4|5)$'), anketa_exp_role)],
+        "exp_role": [MessageHandler(Filters.text, anketa_exp_role)],
+        # "exp_role": [MessageHandler(Filters.regex('^(0|0.5|1|2|3+|)$'), anketa_exp_role)],
         "tuition": [MessageHandler(Filters.text, anketa_tuition)],
         "previous_exp": [MessageHandler(Filters.text, anketa_previous_exp)],
         "superpower": [MessageHandler(Filters.text, anketa_superpower)],
         "purpose": [MessageHandler(Filters.text, anketa_purpose)],
         "time_work": [MessageHandler(Filters.text, anketa_time_work)],
-        "worth": [MessageHandler(Filters.text, anketa_worth)],
+        "working_condition": [MessageHandler(Filters.text, anketa_working_condition)],
         "mail": [MessageHandler(Filters.text, anketa_mail)],
         "contacts": [
         CommandHandler("skip", anketa_own_skip),
@@ -100,7 +103,7 @@ def main():
     
     
     dp.add_handler(CommandHandler('start', greet_user))
-    dp.add_handler(CommandHandler('admin', admin_bot))
+    # dp.add_handler(CommandHandler('admin', admin_bot))
     dp.add_handler(CommandHandler('subscribe', subscribe))
     dp.add_handler(CommandHandler('unsubscribe', unsubscribe))
     dp.add_handler(CommandHandler('subscribe_me', own_subscribe ))
