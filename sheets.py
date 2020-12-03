@@ -1,9 +1,10 @@
-import httplib2 
 import apiclient.discovery
+import httplib2 
+import settings
 from oauth2client.service_account import ServiceAccountCredentials	
 
-CREDENTIALS_FILE = 'intrn-python-f380af35276d.json'  # Имя файла с закрытым ключом, вы должны подставить свое
-spreadsheet_id = '15mVgN6KmeruCgV-xDOsXDDAE5c9NaPJK5DX0082cknQ'
+CREDENTIALS_FILE = 'credentials.json'  # Имя файла с закрытым ключом, вы должны подставить свое
+spreadsheet_id = settings.SPREAD_SHEET_ID
 # Читаем ключи из файла
 credentials = ServiceAccountCredentials.from_json_keyfile_name(CREDENTIALS_FILE, ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive'])
 
