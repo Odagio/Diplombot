@@ -2,12 +2,13 @@ from db import db, get_or_create_own, save_own_anketa, get_or_create_user
 from telegram import ParseMode, ReplyKeyboardRemove, ReplyKeyboardMarkup
 from telegram.ext import ConversationHandler
 from utils import main_keyboard
+import gspread
 
 
 def anketa_start_own(update, context):
     '''Функция открывает диалог, тут же записывает в mongo переменной user в коллекцию own'''
     user = get_or_create_own(db, update.effective_user,
-                              update.message.chat.id)
+                              update.message.chat.id)            
     update.message.reply_text(
         """Привет! Я бот. Чтобы я мог найти для тебя команду, мне нужно собрать информацию.
 Напиши свое имя и фамилию!""",
@@ -54,7 +55,7 @@ def anketa_own_working_condition(update, context):
     то бот просит написать их вручную. и возвращает ответ опять, если выбраны другие кнопки(платно или бесплатно)
     то задает следующий вопрос'''
     work_cond = update.message.text
-    if work_cond == "другое":
+    if work_cond == "другие условия":
         update.message.reply_text("Напиши условия")
         return "working_condition_own"
     else:    
@@ -121,6 +122,19 @@ def anketa_own_contacts_end(update, context):
     user_text_own = format_anketa_own(context.user_data['anketa'])
     update.message.reply_text(user_text_own, reply_markup=main_keyboard(),
                               parse_mode=ParseMode.HTML)
+    gc = gspread.service_account(filename= 'credentials.json')
+    sh = gc.open_by_key('sheet_key')
+    worksheet = sh.sheet1
+    # res = worksheet.get_all_records()
+    # print(res)
+    # users = list(user['user_id'])
+    print (user['user_id'])
+    users = context.user_data['anketa']
+    asd = list(users.values())
+    print (asd[:-1])
+    # worksheet.append_row(user1)
+    worksheet.append_row(asd[:-1])
+    
     return ConversationHandler.END
 
 
