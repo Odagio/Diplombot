@@ -2,6 +2,8 @@ from db import db, get_or_create_user, save_anketa
 from telegram import ParseMode, ReplyKeyboardRemove, ReplyKeyboardMarkup
 from telegram.ext import ConversationHandler
 from utils import main_keyboard
+import gspread
+import settings
 
 
 def anketa_start(update, context):
@@ -32,6 +34,13 @@ def anketa_name(update, context):
 
 def anketa_city(update, context):
     context.user_data["anketa"]["city"] = update.message.text
+    update.message.reply_text(
+        "Оставь свою почту"
+    )
+    return "mail"
+
+def anketa_mail(update, context):
+    context.user_data["anketa"]["mail"] = update.message.text
     update.message.reply_text(
             "Расскажи, какую роль в проекте ты бы взял на себя?"
         )
@@ -81,26 +90,26 @@ def anketa_superpower(update, context):
     return "purpose"
 
     
-def anketa_purpose(update, context):
-    context.user_data["anketa"]["purpose"] = update.message.text
-    update.message.reply_text(
-            "Расскажи сколько свободного времени в неделю ты бы мог выделить для проекта?"
-        )
-    return "time_work"
+# def anketa_purpose(update, context):
+#     context.user_data["anketa"]["purpose"] = update.message.text
+#     update.message.reply_text(
+#             "Расскажи сколько свободного времени в неделю ты бы мог выделить для проекта?"
+#         )
+#     return "time_work"
 
     
 def anketa_time_work(update, context):
-    context.user_data["anketa"]["time_work"] = update.message.text
+    context.user_data["anketa"]["purpose"] = update.message.text
     reply_keyboard = [["платно", "бесплатно", "другие условия"]]
     update.message.reply_text("""Скажи, на каких условиях 
-                              ты планируешь обучаться? """,
+ты планируешь обучаться? """,
                               reply_markup=ReplyKeyboardMarkup(reply_keyboard,
                               one_time_keyboard=True, resize_keyboard=True)
                               )
     return "working_condition"   
 
 
-def anketa_working_condition(update, context):
+def anketa_purpose(update, context):
     work_cond = update.message.text
     if work_cond == "другие условия":
         update.message.reply_text("Напиши условия")
@@ -108,40 +117,55 @@ def anketa_working_condition(update, context):
     else:
         context.user_data["anketa"]["working_condition"] = update.message.text
         update.message.reply_text(
-             """Оставь свою почту"""
+             """Расскажи сколько свободного времени в неделю ты бы мог выделить для проекта?"""
         )
-    return "mail"    
+    return "time_work"    
+
+# def anketa_purpose(update, context):
+#     context.user_data["anketa"]["purpose"] = update.message.text
+#     update.message.reply_text(
+#             "Расскажи сколько свободного времени в неделю ты бы мог выделить для проекта?"
+#         )
+    # return "time_work"
 
 
-def anketa_mail(update, context):
-    context.user_data["anketa"]["mail"] = update.message.text
-    update.message.reply_text(
-        """Оставь свой номер телефон или
-пропустите этот шаг, введя /skip"""
-    )
-    return "contacts"
+# def anketa_mail(update, context):
+#     context.user_data["anketa"]["mail"] = update.message.text
+#     update.message.reply_text(
+#         """Оставь свой номер телефон или
+# пропустите этот шаг, введя /skip"""
+#     )
+#     return "contacts"
 
 
-def anketa_contacts_end(update, context):
+def anketa_working_condition_end(update, context):
     '''анкета принимает на вход контакты и записывает в монго все данные'''
-    context.user_data['anketa']['contacts'] = update.message.text
+    context.user_data['anketa']['time_work'] = update.message.text
     user = get_or_create_user(db, update.effective_user,
                               update.message.chat_id)
     save_anketa(db, user['user_id'], context.user_data['anketa'])
     user_text = format_anketa(context.user_data['anketa'])
     update.message.reply_text(user_text, reply_markup=main_keyboard(),
                               parse_mode=ParseMode.HTML)
+    gc = gspread.service_account(filename= 'credentials.json')#отсылка на апи
+    sh = gc.open_by_key(settings.SPREAD_SHEET_ID)#отсылка на лист
+    worksheet = sh.get_worksheet (0)#отсылка на номер листа
+    users = context.user_data['anketa']
+    asd = list(users.values())#перевод словаря в список анкеты
+    avd = list(user.values())#перевод словаря в список данных пользователя
+    worksheet.append_row(avd[1:5] + asd[:-1])#Складывает и записывает списки именно те
     return ConversationHandler.END
+    
 
 
-def anketa_skip(update, context):
-    user = get_or_create_user(db, update.effective_user,
-                              update.message.chat_id)
-    save_anketa(db, user['user_id'], context.user_data['anketa'])
-    user_text = format_anketa(context.user_data['anketa'])
-    update.message.reply_text(user_text, reply_markup=main_keyboard(),
-                              parse_mode=ParseMode.HTML)
-    return ConversationHandler.END
+# def anketa_skip(update, context):
+#     user = get_or_create_user(db, update.effective_user,
+#                               update.message.chat_id)
+#     save_anketa(db, user['user_id'], context.user_data['anketa'])
+#     user_text = format_anketa(context.user_data['anketa'])
+#     update.message.reply_text(user_text, reply_markup=main_keyboard(),
+#                               parse_mode=ParseMode.HTML)
+#     return ConversationHandler.END
 
 
 def format_anketa(anketa):
@@ -152,19 +176,19 @@ def format_anketa(anketa):
 \n
 <b>имя фамилия:</b> {anketa['name']}
 <b>город:</b> {anketa['city']}
+<b>почта:</b> {anketa['mail']}
 <b>роль в проекте:</b> {anketa['role']}
 <b>опыт:</b> {anketa['exp_role']}
 <b>обучение:</b> {anketa['tuition']}
 <b>предыдущий опыт:</b> {anketa['previous_exp']}
 <b>супер сила:</b> {anketa['superpower']}
 <b>получение от проекта:</b> {anketa['purpose']}
-<b>время работы:</b> {anketa['time_work']}
 <b>условия работы:</b> {anketa['working_condition']}
-<b>почта:</b> {anketa['mail']}
+<b>время работы:</b> {anketa['time_work']}
 """
-    if anketa.get('contacts'):
-        print ("контакты")
-        user_text += f"<b>телефон:</b> {anketa['contacts']}"
+    # if anketa.get('contacts'):
+    #     print ("контакты")
+    #     user_text += f"<b>телефон:</b> {anketa['contacts']}"
     return user_text
 
 

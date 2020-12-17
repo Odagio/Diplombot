@@ -3,6 +3,7 @@ from telegram import ParseMode, ReplyKeyboardRemove, ReplyKeyboardMarkup
 from telegram.ext import ConversationHandler
 from utils import main_keyboard
 import gspread
+import settings
 
 
 def anketa_start_own(update, context):
@@ -34,7 +35,14 @@ def anketa_own_name(update, context):
 def anketa_own_city(update, context):
     context.user_data["anketa"]["city_own"] = update.message.text
     update.message.reply_text(
-            "Как называется твой проект? ?"
+            "Оставь свою почту ?"
+        )
+    return "own_mail"
+
+def anketa_own_mail(update, context):
+    context.user_data["anketa"]["own_mail"] = update.message.text
+    update.message.reply_text(
+            """Как называется твой проект?"""
         )
     return "project_name_own"
 
@@ -91,61 +99,61 @@ def anketa_own_presentation(update, context):
 
 def anketa_own_team(update, context):
     context.user_data["anketa"]["team_own"] = update.message.text
+    reply_keyboard = [["да", "нет"]]
     update.message.reply_text(
-            "Нужен ли тебе ментор/трекер проекта??"
+            "Нужен ли тебе ментор/трекер проекта??",
+                                  reply_markup=ReplyKeyboardMarkup(reply_keyboard,
+                                  one_time_keyboard=True, resize_keyboard=True)
         )
     return "mentor_own"
 
 
+# def anketa_own_mentor(update, context):
+#     context.user_data["anketa"]["mentor_own"] = update.message.text
+#     update.message.reply_text(
+#             """Оставь свою почту"""
+#         )
+#     return "own_mail"
+
+
+# def anketa_own_mail(update, context):
+#     context.user_data["anketa"]["own_mail"] = update.message.text
+#     update.message.reply_text(
+#         """Оставьте свой номер телефон или
+# пропустите этот шаг, введя /skip"""
+#     )
+#     return "own_contacts"
+
+
 def anketa_own_mentor(update, context):
     context.user_data["anketa"]["mentor_own"] = update.message.text
-    update.message.reply_text(
-            """Оставь свою почту"""
-        )
-    return "own_mail"
-
-
-def anketa_own_mail(update, context):
-    context.user_data["anketa"]["own_mail"] = update.message.text
-    update.message.reply_text(
-        """Оставьте свой номер телефон или
-пропустите этот шаг, введя /skip"""
-    )
-    return "own_contacts"
-
-
-def anketa_own_contacts_end(update, context):
-    context.user_data["anketa"]["own_contacts"] = update.message.text
     user = get_or_create_own(db, update.effective_user,
                               update.message.chat_id)
     save_own_anketa(db, user['user_id'], context.user_data['anketa'])
     user_text_own = format_anketa_own(context.user_data['anketa'])
     update.message.reply_text(user_text_own, reply_markup=main_keyboard(),
                               parse_mode=ParseMode.HTML)
-    gc = gspread.service_account(filename= 'credentials.json')
-    sh = gc.open_by_key('sheet_key')
-    worksheet = sh.sheet1
-    # res = worksheet.get_all_records()
-    # print(res)
-    # users = list(user['user_id'])
-    print (user['user_id'])
+    #Записываем в гугл
+    gc = gspread.service_account(filename= 'credentials.json')#отсылка на апи
+    sh = gc.open_by_key(settings.SPREAD_SHEET_ID)#отсылка на лист
+    worksheet = sh.get_worksheet (1)#отсылка на номер листа
     users = context.user_data['anketa']
-    asd = list(users.values())
-    print (asd[:-1])
-    # worksheet.append_row(user1)
-    worksheet.append_row(asd[:-1])
-    
+    asd = list(users.values())#перевод словаря в список анкеты
+    avd = list(user.values())#перевод словаря в список данных пользователя
+    # print (avd[1:4])
+    # print (asd[:-1])
+    worksheet.append_row(avd[1:5] + asd[:-1])#Складывает и записывает списки именно те
     return ConversationHandler.END
 
 
-def anketa_own_skip(update, context):
-    user = get_or_create_own(db, update.effective_user,
-                              update.message.chat_id)
-    save_own_anketa(db, user['user_id'], context.user_data['anketa'])
-    user_text_own = format_anketa_own(context.user_data['anketa'])
-    update.message.reply_text(user_text_own, reply_markup=main_keyboard(),
-                              parse_mode=ParseMode.HTML)
-    return ConversationHandler.END
+# # def anketa_own_skip(update, context):
+#     user = get_or_create_own(db, update.effective_user,
+#                               update.message.chat_id)
+#     save_own_anketa(db, user['user_id'], context.user_data['anketa'])
+#     user_text_own = format_anketa_own(context.user_data['anketa'])
+#     update.message.reply_text(user_text_own, reply_markup=main_keyboard(),
+#                               parse_mode=ParseMode.HTML)
+#     return ConversationHandler.END
 
 
 def format_anketa_own(anketa):
@@ -155,18 +163,29 @@ def format_anketa_own(anketa):
 \n    
 <b>имя фамилия:</b> {anketa['name_own']}
 <b>город:</b> {anketa['city_own']}
+<b>почта:</b> {anketa['own_mail']}
 <b>название проекта:</b> {anketa['project_name_own']}
 <b>условия работы:</b> {anketa['working_condition_own']}
 <b>mvp:</b> {anketa['mvp_own']}
 <b>презентация:</b> {anketa['presentation_own']}
 <b>команда:</b> {anketa['team_own']}
 <b>ментор:</b> {anketa['mentor_own']}
-<b>почта:</b> {anketa['own_mail']}
 """
-    if anketa.get('own_contacts'):
-        user_text_own += f"<b>Контакты:</b> {anketa['own_contacts']}"
+    # if anketa.get('own_contacts'):
+    #     user_text_own += f"<b>Контакты:</b> {anketa['own_contacts']}"
     return user_text_own
 
 
 def anketa_dontknow(update, context):
     update.message.reply_text("я вас не понимаю")
+
+# def save_anketa_google():
+#     gc = gspread.service_account(filename= 'credentials.json')
+#     sh = gc.open_by_key('15mVgN6KmeruCgV-xDOsXDDAE5c9NaPJK5DX0082cknQ')
+#     worksheet = sh.get_worksheet (1)
+#     users = context.user_data['anketa']
+#     asd = list(users.values())
+#     avd = list(user.values())
+#     print (avd[1:4])
+#     print (asd[:-1])
+#     worksheet.append_row(avd[1:5] + asd[:-1])
