@@ -35,7 +35,7 @@ def anketa_own_name(update, context):
 def anketa_own_city(update, context):
     context.user_data["anketa"]["city_own"] = update.message.text
     update.message.reply_text(
-            "Оставь свою почту ?"
+            "Напиши свой e-mail для связи"
         )
     return "own_mail"
 
@@ -69,7 +69,7 @@ def anketa_own_working_condition(update, context):
     else:    
         context.user_data["anketa"]["working_condition_own"] = work_cond
         reply_keyboard = [["да", "нет"]]
-        update.message.reply_text("MVP или что-то, что уже есть?",
+        update.message.reply_text("MVP или что-то, уже есть?",
                                   reply_markup=ReplyKeyboardMarkup(reply_keyboard,
                                   one_time_keyboard=True, resize_keyboard=True)
         )
@@ -101,28 +101,11 @@ def anketa_own_team(update, context):
     context.user_data["anketa"]["team_own"] = update.message.text
     reply_keyboard = [["да", "нет"]]
     update.message.reply_text(
-            "Нужен ли тебе ментор/трекер проекта??",
+            "Нужен ли тебе ментор/трекер проекта?",
                                   reply_markup=ReplyKeyboardMarkup(reply_keyboard,
                                   one_time_keyboard=True, resize_keyboard=True)
         )
     return "mentor_own"
-
-
-# def anketa_own_mentor(update, context):
-#     context.user_data["anketa"]["mentor_own"] = update.message.text
-#     update.message.reply_text(
-#             """Оставь свою почту"""
-#         )
-#     return "own_mail"
-
-
-# def anketa_own_mail(update, context):
-#     context.user_data["anketa"]["own_mail"] = update.message.text
-#     update.message.reply_text(
-#         """Оставьте свой номер телефон или
-# пропустите этот шаг, введя /skip"""
-#     )
-#     return "own_contacts"
 
 
 def anketa_own_mentor(update, context):
@@ -146,16 +129,6 @@ def anketa_own_mentor(update, context):
     return ConversationHandler.END
 
 
-# # def anketa_own_skip(update, context):
-#     user = get_or_create_own(db, update.effective_user,
-#                               update.message.chat_id)
-#     save_own_anketa(db, user['user_id'], context.user_data['anketa'])
-#     user_text_own = format_anketa_own(context.user_data['anketa'])
-#     update.message.reply_text(user_text_own, reply_markup=main_keyboard(),
-#                               parse_mode=ParseMode.HTML)
-#     return ConversationHandler.END
-
-
 def format_anketa_own(anketa):
     user_text_own = f"""Мы записали анкету, если есть ошибка в данных, то пройдите ее еще раз.
 \n
@@ -171,21 +144,8 @@ def format_anketa_own(anketa):
 <b>команда:</b> {anketa['team_own']}
 <b>ментор:</b> {anketa['mentor_own']}
 """
-    # if anketa.get('own_contacts'):
-    #     user_text_own += f"<b>Контакты:</b> {anketa['own_contacts']}"
     return user_text_own
 
 
 def anketa_dontknow(update, context):
     update.message.reply_text("я вас не понимаю")
-
-# def save_anketa_google():
-#     gc = gspread.service_account(filename= 'credentials.json')
-#     sh = gc.open_by_key('15mVgN6KmeruCgV-xDOsXDDAE5c9NaPJK5DX0082cknQ')
-#     worksheet = sh.get_worksheet (1)
-#     users = context.user_data['anketa']
-#     asd = list(users.values())
-#     avd = list(user.values())
-#     print (avd[1:4])
-#     print (asd[:-1])
-#     worksheet.append_row(avd[1:5] + asd[:-1])

@@ -4,7 +4,7 @@ import settings
 
 def main_keyboard():
     return ReplyKeyboardMarkup([
-          ['Стажер', 'Владелец продукта']
+          ['Стажер', 'У меня есть продукт']
           ], one_time_keyboard=True, resize_keyboard=True)
 
 

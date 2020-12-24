@@ -4,26 +4,17 @@ from utils import main_keyboard, admin_keyboard
 
 def greet_user(update, context):
     print('вызван/start')
-    # user = get_or_create_user(db, update.effective_user,
-    #                           update.message.chat.id)
     update.message.reply_text(
-          f"Здравствуй, пользователь! выбери кто ты?",
+          f"""Привет это бот Intrn.
+Выпускники онлайн-курсов не могут устроиться после окончания обучения,
+так как для работодателя важен реальный опыт работы. 
+А без реальной работы не получить реальный опыт - получается замкнутый круг.
+Мы собираемся этот круг разомкнуть!
+Выбери из 2 вариантов ты стажер или у тебя есть продукт,
+который ты хочешь проверить
+""",
           reply_markup=main_keyboard()
           )
-
-
-# def admin_bot(update, context):
-#     print('кто то вызвал админа')
-#     user = chek_admin(db, update.effective_user,
-#                               update.message.chat.id) 
-#     if user:
-#         print('пришел админ')
-#         update.message.reply_text(
-#             f"Здравствуй, Админ! ",
-#             reply_markup=admin_keyboard()
-#             )
-#     else:
-#         update.message.reply_text("не понимаю комманду!")
 
 
 def subscribe(update, context):
